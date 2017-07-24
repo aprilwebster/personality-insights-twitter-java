@@ -39,6 +39,9 @@ public class Twitter4JHelper implements RateLimitStatusListener {
 		String consumerSecret = properties.getProperty(TW_CONSUMER_SECRET_PROP_NAME);
 		String accessToken = properties.getProperty(TW_ACCESS_TOKEN_PROP_NAME);
 		String accessSecret = properties.getProperty(TW_ACCESS_SECRET_PROP_NAME);
+		
+		System.out.println("DEBUG: consumerKey is " + consumerKey);
+		
 		// Validate that these are set and throw an error if they are not
 		ArrayList<String> nullPropNames = new ArrayList<String>();
 		if (StringUtils.isEmpty(consumerKey))
@@ -93,6 +96,7 @@ public class Twitter4JHelper implements RateLimitStatusListener {
 	        	gen.writeEndObject();
 	        }
         }
+        System.out.println("Twitter4JHelper");
         gen.writeEndArray();
         gen.writeEndObject();
         gen.flush();

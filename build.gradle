@@ -23,6 +23,17 @@ dependencies {
     compile 'org.apache.commons:commons-lang3:3.3.2'
 }
 
+jar {
+  manifest {
+    attributes(
+      'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
+      'Main-Class': 'com.ibm.watson.personalityinsights.sample.twitter.TwitterAnalyzer'
+    )
+  }
+}
+
+
+
 task wrapper(type: Wrapper) {
     gradleVersion = '2.5'
 }

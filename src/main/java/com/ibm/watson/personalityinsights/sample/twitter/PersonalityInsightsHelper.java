@@ -12,6 +12,7 @@ import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.config.ClientConfig;
 import com.sun.jersey.api.client.config.DefaultClientConfig;
 import com.sun.jersey.api.client.filter.HTTPBasicAuthFilter;
+//import org.glassfish.hk2.utilities.AbstractActiveDescriptor;
 
 public class PersonalityInsightsHelper {
 	public static final String PI_URL_PROP_NAME = "pi.url";
@@ -43,6 +44,7 @@ public class PersonalityInsightsHelper {
 	}
 
 	public String getProfileJSON(String contentItemsJson, boolean includeRaw) {
+		System.out.println("DEBUG PersonalityInsights.getProfileJSON: the contentItemsJson is " + contentItemsJson);
 		return client.resource(uri)
 				.queryParam("include_raw", Boolean.toString(includeRaw))
 				.accept(MediaType.APPLICATION_JSON_TYPE)
